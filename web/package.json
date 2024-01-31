@@ -18,6 +18,7 @@
     "react-scripts": "5.0.1",
     "tailwindcss": "^3.4.1",
     "typescript": "^4.9.5",
+    "use-gauge": "^0.5.0",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -45,6 +46,7 @@
     ]
   },
   "devDependencies": {
+    "classcat": "^5.0.4",
     "sass": "^1.70.0"
   }
 }

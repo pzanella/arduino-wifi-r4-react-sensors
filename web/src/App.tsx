@@ -2,7 +2,8 @@ import { getDatabase, onValue, query, ref } from "firebase/database";
 import { useEffect, useState } from "react";
 
 import { initializeApp } from "firebase/app";
-import Card from "./components/Card";
+import { HumidityCard } from "./components/HumidityCard";
+import { TemperatureCard } from "./components/TemperatureCard";
 import { DataType } from "./model";
 
 const App = () => {
@@ -39,8 +40,8 @@ const App = () => {
     return (
         <div className="flex flex-col min-h-screen bg-zinc-900 p-8">
             <main className="flex flex-col flex-grow justify-center items-center gap-y-10">
-                <Card title="Temperature" value={data?.sensors.temperature.value} unitOfMeasure={data?.sensors.temperature.unitOfMeasure} />
-                <Card title="Humidity" value={data?.sensors.humidity.value} unitOfMeasure={data?.sensors.humidity.unitOfMeasure} />
+                <TemperatureCard value={Number(data?.sensors.temperature.value)} unitOfMeasure={String(data?.sensors.temperature.unitOfMeasure)} />
+                <HumidityCard value={Number(data?.sensors.humidity.value)} unitOfMeasure={String(data?.sensors.humidity.unitOfMeasure)} />
             </main>
             <footer>
                 <div className="pt-8 text-center text-neutral-600">
