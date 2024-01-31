@@ -9,7 +9,7 @@ const char pass[] = WIFI_PASSWORD;
 
 String serverAddress = "arduino-db-sensors-default-rtdb.europe-west1.firebasedatabase.app";
 int port = 443;
-String path = "/sensors/temperature.json?auth=" + String(FIREBASE_AUTH);
+String path = "/sensors.json?auth=" + String(FIREBASE_AUTH);
 
 WiFiSSLClient wifi;
 HttpClient client = HttpClient(wifi, serverAddress, port);
@@ -41,11 +41,22 @@ void loop() {
   Serial.print("Temperature :: ");
   Serial.println(temperature);
 
+  float humidity = random(0, 100);
+  Serial.print("Humidity :: ");
+  Serial.println(humidity);
+
   JsonDocument doc;
-  doc["temperature"] = String(temperature);
-  doc["unitOfMeasure"] = "celsius";
+
+  JsonObject temperatureJsonObject = doc["temperature"].to<JsonObject>();
+  temperatureJsonObject["value"] = temperature;
+  temperatureJsonObject["unitOfMeasure"] = "°C";
+
+  JsonObject humidityJsonObject = doc["humidity"].to<JsonObject>();
+  humidityJsonObject["value"] = humidity;
+  humidityJsonObject["unitOfMeasure"] = "%";
 
   String output;
+  doc.shrinkToFit();
   serializeJson(doc, output);
 
   Serial.println(output);
@@ -63,5 +74,5 @@ void loop() {
   client.stop();
 
   Serial.println("Wait ten seconds");
-  delay(10000);
+  delay(5000);
 }
