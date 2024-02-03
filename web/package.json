@@ -1,7 +1,6 @@
 {
-  "name": "arduino-dht-22-web-app",
+  "name": "arduino-wifi-r4-react-sensors",
   "version": "0.1.0",
-  "private": true,
   "dependencies": {
     "@types/node": "^16.18.76",
     "@types/react": "^18.2.48",
