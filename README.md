@@ -11,7 +11,7 @@
 #### Firebase console
 You'll need to add a new project in Firebase console.
 Open this url `https://console.firebase.google.com/`, you use your credentials to login.
-Add the Realtime database and change the rules as follow:
+Add the Realtime Database and change the rules as follow:
 ```json
 {
   "rules": {
