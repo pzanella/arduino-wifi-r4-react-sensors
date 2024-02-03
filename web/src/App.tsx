@@ -1,10 +1,10 @@
 import { getDatabase, onValue, query, ref } from "firebase/database";
 import { useEffect, useState } from "react";
 
-import { initializeApp } from "firebase/app";
 import { HumidityCard } from "./components/HumidityCard";
+import { SensorsType } from "./model";
 import { TemperatureCard } from "./components/TemperatureCard";
-import { DataType } from "./model";
+import { initializeApp } from "firebase/app";
 
 const App = () => {
     const firebaseConfig = {
@@ -20,15 +20,15 @@ const App = () => {
     const app = initializeApp(firebaseConfig);
     const db = getDatabase(app);
 
-    const [data, setData] = useState<DataType>();
+    const [data, setData] = useState<SensorsType>();
 
     useEffect(() => {
-        const dbRef = query(ref(db, "/"));
+        const dbRef = query(ref(db, "/sensors"));
 
         return onValue(
             dbRef,
             (snapshot) => {
-                const values: DataType = snapshot.val();
+                const values: SensorsType = snapshot.val();
                 setData(values);
             },
             (error) => {
@@ -40,12 +40,12 @@ const App = () => {
     return (
         <div className="flex flex-col min-h-screen bg-zinc-900 p-8">
             <main className="flex flex-col flex-grow justify-center items-center gap-y-10">
-                <TemperatureCard value={Number(data?.sensors.temperature.value)} unitOfMeasure={String(data?.sensors.temperature.unitOfMeasure)} />
-                <HumidityCard value={Number(data?.sensors.humidity.value)} unitOfMeasure={String(data?.sensors.humidity.unitOfMeasure)} />
+                <TemperatureCard value={Number(data?.temperature.value)} unitOfMeasure={String(data?.temperature.unitOfMeasure)} />
+                <HumidityCard value={Number(data?.humidity.value)} unitOfMeasure={String(data?.humidity.unitOfMeasure)} />
             </main>
             <footer>
                 <div className="pt-8 text-center text-neutral-600">
-                    © 2024 Copyright&nbsp;
+                    © 2024 Copyright&nbsp;&nbsp;
                     <a className="text-neutral-400" href="https://github.com/pzanella">
                         Pietro Zanella
                     </a>

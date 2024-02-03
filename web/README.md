@@ -1,46 +1,53 @@
-# Getting Started with Create React App
+# Show temperature and humidity values on HTML web page
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Table of content
+1. [Setup](#setup)
+2. [Start](#start)
+3. [Build](#build)
+4. [Deploy](#deploy)
 
-## Available Scripts
+### Setup
+You’ll need to have Node 20.10.0 on your local development machine. You can use nvm (macOS/Linux) or nvm-windows to switch Node versions between different projects. Move on `/web` folder and run the following command:
+```bash
+nvm use
+```
 
-In the project directory, you can run:
+After that, run the following command to install all dependencies:
+```bash
+npm install
+```
 
-### `npm start`
+You'll need to creates the dotenv file to the web app project root (`/web`):
+```
+REACT_APP_FIREBASE_API_KEY=<FIREBASE_API_KEY>
+REACT_APP_FIREBASE_AUTH_DOMAIN=<FIREBASE_AUTH_DOMAIN>
+REACT_APP_FIREBASE_DATABASE_URL=<FIREBASE_DATABASE_URL>
+REACT_APP_FIREBASE_PROJECT_ID=<FIREBASE_PROJECT_ID>
+REACT_APP_FIREBASE_STORAGE_BUCKET=<FIREBASE_STORAGE_BUCKET>
+REACT_APP_FIREBASE_MESSAGING_SENDER_ID=<FIREBASE_MESSAGING_SENDER_ID>
+REACT_APP_FIREBASE_APP_ID=<FIREBASE_APP_ID>
+```
+The file must be named `.env`.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+These values can you download from `Firebase console > Project settings > General`, scroll down and click on `Add app` and select web app. You need to follows the instructions to create and register a Firebase app.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Start
+To run the project on your local development machine, move to `/web` folder where the package.json file stored, run the following command:
+```bash
+npm run start
+```
 
-### `npm test`
+Open the browser and paste the following url to see the web app `http://localhost:3000/`.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Build
+To build the project, run the following command:
+```bash
+npm run build
+```
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Deploy
+Run the following command:
+```bash
+npm run deploy
+```
+You'll need to Firebase login from terminal to deploy your web app.

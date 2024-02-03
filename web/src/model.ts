@@ -1,12 +1,9 @@
-export type DataType = {
-    sensors: {
-        temperature: {
-            value: number;
-            unitOfMeasure: string;
-        };
-        humidity: {
-            value: number;
-            unitOfMeasure: string;
-        };
-    };
+export type SensorsType = {
+    temperature: ISensors;
+    humidity: ISensors;
+};
+
+export interface ISensors {
+    value: number;
+    unitOfMeasure: string;
 };
