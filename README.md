@@ -4,7 +4,8 @@
 1. [Setup](#setup)
     * [Firebase console](#firebase-console)
     * [Arduino script](#arduino-script)
-2. [Web app project](#react-project)
+2. [Show temperature and humidity values on HTML web page](#web-app-project)
+    * [See a realtime web page example](#see-web-page)
 
 ### Setup
 #### Firebase console
@@ -36,5 +37,8 @@ where:
 * `<YOUR-FIREBASE-AUTHENTICATION-CODE>`, it's the Realtime Database authentication secret.
 To creates the Realtime Database authentication secret you move to `Firebase console > Project settings > Service accounts > Database secret` and click on `Add secret`, you have to copy this secret code.
 
-#### Show temperature and humidity values on HTML web page
-You can read the specific documentation [here](/web/README.md).
+### <a id="web-app-project"></a>Show temperature and humidity values on HTML web page
+You can read the specific documentation [here](/web/README.md) to correctly setup web app project.
+
+#### See a realtime web page example
+Click [here](https://arduino-wifi-r4-react-sensors.web.app/) to see a realtime example.
